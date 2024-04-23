@@ -28,13 +28,13 @@ class Market():
             else:
                 forecast_op[n] = "-"
         print(f"""
-\tL share_value={company.share_value} ({round(share_value_increase, 3)}%)
+\tL share_value={round(company.share_value, 3)} ({round(share_value_increase, 3)}%)
 \tL Forecast= {forecast_op[0]}{forecast_op[1]}""")
 
     def update(self):
         for i, company in enumerate(self._companies):
             forecast_roll = 0
-            if random.randint(0, 100) >= 50 - company.forecast_influence * (company.forecast[0] + company.forecast[1] - 1):
+            if random.randint(1, 100) >= 50 - company.forecast_influence * (company.forecast[0] + company.forecast[1] - 1):
                 forecast_roll = 1
             else:
                 forecast_roll = -1

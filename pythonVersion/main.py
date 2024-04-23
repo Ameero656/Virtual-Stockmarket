@@ -8,7 +8,7 @@ def main():
 
     market.add_company(company1)
     market.advanced_list_companies()
-    for x in range(10000):
+    for x in range(100):
         market.update()
         market.advanced_list_companies()
         input()
