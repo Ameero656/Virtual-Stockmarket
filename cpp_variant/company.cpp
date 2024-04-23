@@ -27,7 +27,7 @@ std::map<double, Stock> Company::getInventory() {
 }
 void Company::buy(Investor& investor, int amount) {
     double price = inventory.begin()->first * amount;
-    bool approvedTransaction = investor.withdraw(amount * price);
+    bool approvedTransaction = investor.withdraw(price);
 
     Stock newStock(amount, companyID);
 

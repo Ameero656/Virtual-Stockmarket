@@ -14,16 +14,12 @@ void Market::advancedListCompanies() {
         std::cout << "->" << i << "..." << company.getName() << "\n";
 
         float shareValueIncrease = 0;
-        float maxChangeIncrease = 0;
-        float minChangeIncrease = 0;
 
         if (company.getShareValueHistory().size() >= 2) {
             shareValueIncrease = myArith.roundToDecimal((1 - (company.getShareValueHistory()[company.getShareValueHistory().size() - 2] / company.getShareValue())) * 100, 3);
         }
 
         std::string shareValueOp = shareValueIncrease >= 0 ? "+" : "";
-        std::string maxChangeOp = maxChangeIncrease >= 0 ? "+" : "";
-        std::string minChangeOp = minChangeIncrease >= 0 ? "+" : "";
         std::pair<std::string, std::string> forecastOp = {
             company.getForecast().first == 1 ? "+" : "-",
             company.getForecast().second == 1 ? "+" : "-" };
@@ -34,7 +30,6 @@ void Market::advancedListCompanies() {
             << "\n";
     }
 }
-
 void Market::update()
 {
 
